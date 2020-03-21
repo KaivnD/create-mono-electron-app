@@ -1,6 +1,6 @@
 {
   "name": "create-mono-electron-app",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "bin": {
     "create-mono-electron-app": "index.js"
@@ -11,7 +11,6 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "commander": "^5.0.0",
-    "conf": "^6.2.1",
     "execa": "^4.0.0",
     "fs-extra": "^9.0.0",
     "git-config-path": "^2.0.0",

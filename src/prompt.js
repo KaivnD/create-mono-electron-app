@@ -5,8 +5,6 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const validateNpmName = require("validate-npm-package-name");
 
-const config = require("./config");
-
 module.exports = async opts => {
   if (opts.name && !validateNpmName(opts.name).validForNewPackages) {
     throw new Error(`invalid package name "${opts.name}"`);
@@ -94,11 +92,6 @@ module.exports = async opts => {
           })
       }
     ]);
-
-    config.set("author", info.author);
-    config.set("license", info.license);
-    config.set("manager", info.manager);
-    config.set("template", info.template);
 
     return {
       ...info,

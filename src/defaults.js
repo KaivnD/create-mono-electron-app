@@ -5,48 +5,32 @@ const githubUsername = require("github-username");
 const parseGitConfig = require("parse-git-config");
 const which = require("which");
 
-const config = require("./config");
-
 const createDefaults = async () => {
   const defaults = {
     name: "",
     description: "",
-    author: config.get("author"),
+    author: "",
     repo: info => `${info.author}/${info.name}`,
-    license: config.get("license", "MIT"),
-    manager: config.get("manager", "npm"),
-    template: config.get("template", "default")
+    license: "MIT",
+    manager: "npm",
+    template: "default"
   };
 
   try {
-    if (!config.get("author")) {
-      const gitConfigPath = getGitConfigPath("global");
+    const gitConfigPath = getGitConfigPath("global");
 
-      if (gitConfigPath) {
-        const gitConfig = parseGitConfig.sync({ path: gitConfigPath });
+    if (gitConfigPath) {
+      const gitConfig = parseGitConfig.sync({ path: gitConfigPath });
 
-        if (gitConfig.github && gitConfig.github.user) {
-          defaults.author = gitConfig.github.user;
-        } else if (gitConfig.user && gitConfig.user.email) {
-          defaults.author = await githubUsername(gitConfig.user.email);
-        }
-      }
-
-      if (defaults.author) {
-        config.set("author", defaults.author);
+      if (gitConfig.github && gitConfig.github.user) {
+        defaults.author = gitConfig.github.user;
+      } else if (gitConfig.user && gitConfig.user.email) {
+        defaults.author = await githubUsername(gitConfig.user.email);
       }
     }
 
-    if (!config.get("manager")) {
-      if (which.sync("yarn", { nothrow: true })) {
-        defaults.manager = "yarn";
-      }
-
-      config.set("manager", defaults.manager);
-    }
-
-    if (!config.get("template")) {
-      config.set("template", defaults.template);
+    if (which.sync("yarn", { nothrow: true })) {
+      defaults.manager = "yarn";
     }
   } catch (err) {}
 
