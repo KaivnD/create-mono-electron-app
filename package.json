@@ -1,9 +1,9 @@
 {
   "name": "create-mono-electron-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "bin": {
-    "create-mono-electron-library": "index.js"
+    "create-mono-electron-app": "index.js"
   },
   "repository": "https://github.com/KaivnD/create-mono-electron-app.git",
   "author": "KaivnD <KaivnD@hotmail.com>",
