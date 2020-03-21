@@ -1,0 +1,29 @@
+{
+  "name": "{{name}}",
+  "version": "1.0.0",
+  "description": "{{description}}",
+  "author": "{{author}}",
+  "license": "{{license}}",
+  "repository": "{{repo}}",
+  "scripts": {
+    "prebuild": "node ./scripts/prebuild.js",
+    "build": "electron-webpack",
+    "electron": "electron dist/main/main.js",
+    "package": "electron-builder",
+    "start": "node ./scripts/start.js",
+    "test": "echo Skipped."
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.16"
+  },
+  "devDependencies": {
+    "fs-extra": "9.0.0",
+    "electron": "^8.1.1",
+    "electron-builder": "^22.4.1",
+    "electron-webpack": "^2.7.4",
+    "electron-webpack-ts": "^3.2.0"
+  },
+  "resolutions": {
+    "webpack-sources": "^1.1.0"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "{{name}}",
+  "version": "1.0.0",
+  "description": "{{description}}",
+  "author": "{{author}}",
+  "license": "{{license}}",
+  "repository": "{{repo}}",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/electron-builder",
+      "**/electron-builder/**",
+      "**/electron-webpack",
+      "**/electron-webpack/**"
+    ]
+  },
+  "engines": {
+    "yarn": "^1.22.0"
+  },
+  "scripts": {
+    "build": "lerna run build --stream",
+    "preelectron": "yarn build",
+    "electron": "lerna run electron --scope @noah/client",
+    "lint": "echo Put your favorite linter here.",
+    "prepackage": "yarn build",
+    "package": "lerna run package --scope @noah/client --stream",
+    "start": "lerna exec --parallel --stream yarn start",
+    "test": "lerna run test --parallel"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2",
+    "typescript": "^3.8.3"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "create-mono-electron-app",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/KaivnD/create-mono-electron-app.git",
+  "author": "KaivnD <KaivnD@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^5.0.0",
+    "conf": "^6.2.1",
+    "execa": "^4.0.0",
+    "fs-extra": "^9.0.0",
+    "git-config-path": "^2.0.0",
+    "github-username": "^5.0.1",
+    "globby": "^11.0.0",
+    "handlebars": "^4.7.3",
+    "inquirer": "^7.1.0",
+    "ora": "^4.0.3",
+    "p-each-series": "^2.1.0",
+    "parse-git-config": "^3.0.0",
+    "validate-npm-package-name": "^3.0.0",
+    "which": "^2.0.2"
+  }
+}
